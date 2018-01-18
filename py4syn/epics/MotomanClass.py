@@ -19,8 +19,7 @@ class Motoman:
         else:
             self.motomanfinish = False
 
-    def __init__ (self,pvPrefix="", mnemonic=""):
-        StandardDevice.__init__(self, mnemonic)
+    def __init__ (self,pvPrefix=""):
         self.pvBVAL_RBV = PV(pvPrefix + ":BVAL_RBV")
         self.pvBVAL = PV(pvPrefix + ":BVAL")
         self.pvBPOS = PV(pvPrefix+ ":BPOS")
