@@ -28,7 +28,7 @@ class Motoman:
         self.pvSVON = PV(pvPrefix+":SVON")
         self.pvRUNNING = PV(pvPrefix+":RUNNING")
         self.pvRUNNING.add_callback(self.finish)
-        self.pvJOB = PV(pvPrefix+":JOB") 
+        self.pvJOB = PV(pvPrefix+":JOB",auto_monitor=False) 
         self.pvGOJOB = PV(pvPrefix+":GOJOB")
         self.pvSTA1 = PV(pvPrefix+":STA1")
         self.pvSTA2 = PV(pvPrefix + ":STA2")
