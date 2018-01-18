@@ -48,7 +48,7 @@ class Motoman:
 
     def waitFinish(self):
         while not self.motomanfinish:
-            sleep(0.01)
+            sleep(0.1)
     
     def servoON(self,bool):
         if ((bool != 0) and (bool !=1)):
