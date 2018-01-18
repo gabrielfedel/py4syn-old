@@ -14,10 +14,12 @@ from time import sleep
 class Motoman:
 
     def finish(self, value, **kw):
-        if value == "Done":
-            self.motomanfinish = True
+
+        if value == 0:
+            self.motomanfinish = 1
         else:
-            self.motomanfinish = False
+            
+            self.motomanfinish = 0
 
     def __init__ (self,pvPrefix=""):
         self.pvBVAL_RBV = PV(pvPrefix + ":BVAL_RBV")
@@ -30,10 +32,9 @@ class Motoman:
         self.pvGOJOB = PV(pvPrefix+":GOJOB")
         self.pvSTA1 = PV(pvPrefix+":STA1")
         self.pvSTA2 = PV(pvPrefix + ":STA2")
-   
-        self.motomanfinish = False
+        self.motomanfinish = self.pvRUNNING.get()
 
-    def changeJOB(self,job=""):
+    def changeJOB(self,job):
         self.pvJOB.put(job)
     
     def goJOB(self):
