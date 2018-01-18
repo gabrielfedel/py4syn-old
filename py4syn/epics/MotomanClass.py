@@ -39,9 +39,12 @@ class Motoman:
     
     def goJOB(self):
         self.pvGOJOB.put(1)
-        self.motomanfinish = False
+        while self.motomanfinish:
+            pass
+        #self.motomanfinish = self.pvRUNNING.get()
         while not self.motomanfinish:
             sleep(0.1)
+        self.motomanfinish = 1
 
     def waitFinish(self):
         while not self.motomanfinish:
