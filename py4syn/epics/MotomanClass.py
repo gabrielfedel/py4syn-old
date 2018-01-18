@@ -67,7 +67,7 @@ class Motoman:
             self.pvBVAL.put(val)
 
     def setBPOS(self,pos):
-        if ((pos < 0) or (pos > 2)):
+        if ((pos < 0) or (pos > 20)):
             self.pvBPOS.put(000)
         else:
             self.pvBPOS.put(pos)
