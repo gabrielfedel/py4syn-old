@@ -10,9 +10,8 @@ USAGE...    Python Class for EPICS Motoman DX100 controller
 
 from epics import PV
 from time import sleep
-from py4syn.epics.StandardDevice import StandardDevice
 
-class Motoman(StandardDevice):
+class Motoman:
 
     def finish(self, value, **kw):
         if value == "Done":
