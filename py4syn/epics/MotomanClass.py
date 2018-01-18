@@ -32,10 +32,14 @@ class Motoman:
         self.pvGOJOB = PV(pvPrefix+":GOJOB")
         self.pvSTA1 = PV(pvPrefix+":STA1")
         self.pvSTA2 = PV(pvPrefix + ":STA2")
+        self.pvJOBTAM = PV(pvPrefix + ":JOBTAM")
+
         self.motomanfinish = self.pvRUNNING.get()
 
     def changeJOB(self,job):
         self.pvJOB.put(job)
+        # size of job + 2 (\r\n)
+        self.pvJOBTAM.put(len(job) + 2)
     
     def goJOB(self):
         self.pvGOJOB.put(1)
